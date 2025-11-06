@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   // experimental: {
   //   ppr: 'incremental'
   // },
-  cacheComponents: true,
+  // cacheComponents: true,
 };
 
 export default nextConfig;
