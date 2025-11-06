@@ -1,9 +1,9 @@
 import AcmeLogo from '@/app/ui/acme-logo';
 import NavLinks from '@/app/ui/dashboard/nav-links';
+import { SkeletonNavLinks } from '@/app/ui/skeletons';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { SkeletonNavLinks } from '@/app/ui/skeletons';
 
 export default function SideNav() {
   return (
