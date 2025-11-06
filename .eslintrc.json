@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "warn", // 或者 'warn' 或 'off'
+      {
+        "args": "after-used", // 检查参数是否在函数中被使用，'none' 表示不检查参数，'after-used' 表示只在参数被使用后检查，'all' 表示总是检查
+        "ignoreRestSiblings": false, // 是否忽略带有剩余参数的函数中的其他参数
+        "argsIgnorePattern": "^_" // 忽略以 '_' 开头的参数
+      }
+    ]
+  }
+}

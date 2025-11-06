@@ -1,5 +1,5 @@
 'use client'
- 
+// @typescript-eslint/no-unused-vars
 import React, { Component, ErrorInfo, ReactNode } from 'react'
  
 interface ErrorBoundaryProps {

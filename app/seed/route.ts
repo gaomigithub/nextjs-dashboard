@@ -103,7 +103,7 @@ async function seedRevenue(sql: postgres.TransactionSql) {
 
 export async function GET() {
   try {
-    const result = await sql.begin((sql) => [
+    await sql.begin((sql) => [
       seedUsers(sql),
       seedCustomers(sql),
       seedInvoices(sql),

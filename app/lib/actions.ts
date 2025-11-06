@@ -24,7 +24,7 @@ export async function createInvoice(formData: FormData) {
 
   // 记录收到的表单数据
   console.log("Received formData:");
-  for (let [key, value] of formData.entries()) {
+  for (const [key, value] of formData.entries()) {
     console.log(`  ${key}: ${value}`);
   }
 
