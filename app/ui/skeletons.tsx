@@ -216,3 +216,22 @@ export function InvoicesTableSkeleton() {
     </div>
   );
 }
+
+export function SkeletonNavLinks() {
+  return (
+    <>
+      <div className={`${shimmer} flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-100 p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3`}>
+        <div className="w-6 h-6 rounded bg-gray-200" />
+        <div className="hidden md:block h-4 w-16 rounded bg-gray-200"></div>
+      </div>
+      <div className={`${shimmer} flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-100 p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3`}>
+        <div className="w-6 h-6 rounded bg-gray-200" />
+        <div className="hidden md:block h-4 w-16 rounded bg-gray-200"></div>
+      </div>
+      <div className={`${shimmer} flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-100 p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3`}>
+        <div className="w-6 h-6 rounded bg-gray-200" />
+        <div className="hidden md:block h-4 w-16 rounded bg-gray-200"></div>
+      </div>
+    </>
+  );
+}
