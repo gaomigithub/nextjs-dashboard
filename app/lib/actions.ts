@@ -76,16 +76,16 @@ export async function createInvoice(prevState: State, formData: FormData) {
     `;
 
     console.log("=== Server Action: createInvoice completed ===");
+    revalidatePath('/dashboard/invoices');
+    // 重定向回发票列表页面
+    redirect('/dashboard/invoices');
   } catch (error) {
     return {
       message: `Database Error: Failed to Create Invoice: ${error}`,
       errors: {} as StateError,
+      payload: undefined
     };
   }
-
-  revalidatePath('/dashboard/invoices');
-  // 重定向回发票列表页面
-  redirect('/dashboard/invoices');
 }
 
 export async function updateInvoice(
@@ -124,15 +124,15 @@ export async function updateInvoice(
       SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
       WHERE id = ${id}
     `;
+    revalidatePath('/dashboard/invoices');
+    redirect('/dashboard/invoices');
   } catch (error) {
     return {
       message: `Database Error: Failed to Update Invoice: ${error}`,
-      errors: {} as StateError
+      errors: {} as StateError,
+      payload: undefined
     };
   }
-
-  revalidatePath('/dashboard/invoices');
-  redirect('/dashboard/invoices');
 }
 
 export async function deleteInvoice(id: string) {
@@ -140,11 +140,17 @@ export async function deleteInvoice(id: string) {
   // throw new Error('Failed to Delete Invoice');
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
+    return {
+      message: 'Invoice deleted successfully',
+      errors: {} as StateError,
+      payload: undefined
+    };
   } catch (error) {
     console.error("Error deleting invoice:", error);
     return {
       message: 'Database Error: Failed to Delete Invoice.',
-      errors: {} as StateError
+      errors: {} as StateError,
+      payload: undefined
     };
   } finally {
     revalidatePath('/dashboard/invoices');
